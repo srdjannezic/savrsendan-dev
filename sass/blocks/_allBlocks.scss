@@ -1,0 +1,981 @@
+//-------------------------
+//-------------ALL BLOCKS
+//-------------------------
+
+.header {
+	position: relative;
+	padding: 35px 0;
+	@include breakpoint(tablet--landscape) {
+		padding: 2rem 0;
+	}
+	.container {
+		position: relative;
+	}
+	&__nav {
+		float: left;
+		@include breakpoint(tablet--landscape) {
+			float: none;
+			display: none;
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			left: 0;
+			top: 0;
+			background-color: $c-mainYellow;
+			z-index: 8;
+		}
+		ul {
+			@include breakpoint(tablet--landscape) {
+				@include absolute(center);
+			}
+		}
+		&.openMenu {
+			display: block!important;
+		}
+		li {
+			font-family: $bouncyFont;
+			display: inline-block;
+			margin-right: 25px;
+			@include breakpoint(tablet--landscape) {
+				display: block;
+				text-align: center;
+				margin-right: 0;
+				margin: 3rem 0;
+			}
+			a {
+				display: block;
+				position: relative;
+				font-size: 36px;
+				color: $c-mainBrown;
+				text-transform: uppercase;
+				border-bottom: 10px solid transparent;
+				transition: all ease 0.3s;
+				-webkit-border-image: url('../img/crtica.png') 30 round; /* Safari 3.1-5 */
+				-o-border-image: url('../img/crtica.png') 30 round; /* Opera 11-12.1 */
+				border-image: url('../img/crtica.png') 30 round;
+			}
+			&:hover,
+			&.active {
+				a {
+					color: $c-textRed;
+					-webkit-border-image: url('../img/crvena-crtica.png') 30 round; /* Safari 3.1-5 */
+					-o-border-image: url('../img/crvena-crtica.png') 30 round; /* Opera 11-12.1 */
+					border-image: url('../img/crvena-crtica.png') 30 round;
+				}
+				
+			}
+		}
+	}
+	&__logo {
+		position: absolute;
+		right: 0;
+		top: -37px;
+		width: 240px;
+		@include breakpoint(tablet--landscape) {
+			width: 18rem;
+			top: -2rem;
+			// right: 4rem;
+		}
+		img {
+			width: 100%;
+		}
+	}
+}
+
+.ham-icon {
+	display: none;
+	min-height: 7rem;
+	min-width: 6rem;
+	.close {
+		display: none;
+		position: fixed;
+		top: 3rem;
+		left: 4rem;
+		width: 5rem;
+	}
+	@include breakpoint(tablet--landscape) {
+		display: block;
+		
+	}
+	img {
+		position: relative;
+		z-index: 99;
+		width: 100%;
+
+	}
+	.open {
+		width: 6rem;
+	}
+}
+
+footer h2 {
+	position: absolute;
+	bottom: -1000px;
+	opacity: 0;
+}
+
+//-- main flow IMG
+
+main {
+	width: 100%;
+}
+
+
+//-- main FLOW- home
+
+.main-flow {
+	padding-top: 60px;
+	width: 100%;
+	margin: 0 auto;
+    max-width: 1520px;
+    @include breakpoint(tablet) {
+    	padding-top: 20px;
+    }
+	img {
+		width: 100%;
+	}
+	.desktop-flow {
+		@include breakpoint(tablet) {
+			display: none;
+		}
+	}
+	.mobile-flow {
+		display: none;
+		@include breakpoint(tablet) {
+			display: block;
+		}
+	}
+}
+
+//-- Call to upload - home
+
+.call-to-upload {
+	margin: 20px 0;
+	padding: 20px 0;
+	text-align: center;
+	background-color: $c-darkYellow;
+	a {
+		position: relative;
+		display: inline-block;
+		font-family: $bouncyFont;
+		width: 400px;
+		height: 80px;
+		font-size: 36px;
+		color: $c-white;
+		text-transform: uppercase;
+		background-image: url('../img/oklagija.png');
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100%;
+		@include breakpoint(mobile) {
+			width: 90%;
+		}
+		span {
+			@include absolute(center);
+		}
+	}
+}
+
+//-- Product slider - home
+
+.product-slider {
+	.container {
+		border-bottom: 10px solid transparent;
+		-webkit-border-image: url('../img/crtica.png') 30 round; /* Safari 3.1-5 */
+		-o-border-image: url('../img/crtica.png') 30 round; /* Opera 11-12.1 */
+		border-image: url('../img/crtica.png') 30 round;
+	}
+	.img-wrapper {
+		img {
+			display: block;
+			width: 80%;
+			margin: 0 auto;
+			transform: rotate(-2deg);
+			@include breakpoint(mobile) {
+				width: 90%;
+			}
+		}
+
+	}
+	.slick-slide {
+		padding: 20px 0;
+		@include breakpoint(mobile) {
+			padding: 4rem 0;
+		}
+		&:nth-child(2n-1) {
+			img {
+				transform: rotate(4deg);
+			}
+			
+		}
+	}
+}
+
+//--- Product display - home
+
+.product-list-navigation {
+	@extend %clearfix;
+	padding: 60px 0;
+	@include breakpoint(mobile) {
+		display: none;
+	}
+	li {
+		float: left;
+		width: 12.5%;
+		text-align: center;
+		cursor: pointer;
+		img {
+			width: 70%;
+			margin: 0 auto;
+		}
+	}
+}
+
+//--- Display product list - home
+
+.display-list-wrapper {
+	@extend %clearfix;
+	padding: 0 10rem;
+	@include breakpoint(mobile) {
+		padding: 0;
+	}
+}
+
+.display {
+	display: none;
+	position: relative;
+	@extend %clearfix;
+	@include breakpoint(mobile) {
+		display: flex!important;
+		flex-direction: column;
+		padding: 8rem 0;
+	}
+	&.active {
+		display: block;
+		@include breakpoint(mobile) {
+			display: flex;
+		}
+	}
+}
+
+.display__info,
+.display__img {
+	float: left;
+}
+
+.display__info {
+	width: 55%;
+	@include breakpoint(mobile) {
+		width: 100%;
+		order: 2;
+	}
+	h2 {
+		display: inline-block;
+		font-family: $bouncyFont;
+		font-size: 80px;
+		text-transform: uppercase;
+		color: $c-infoRed;
+		border-bottom: 10px solid transparent;
+		-webkit-border-image: url('../img/crvena-crtica.png') 30 round; /* Safari 3.1-5 */
+		-o-border-image: url('../img/crvena-crtica.png') 30 round; /* Opera 11-12.1 */
+		border-image: url('../img/crvena-crtica.png') 30 round;
+		@include breakpoint(mobile) {
+			display: block;
+			text-align: center;
+			font-size: 8rem;
+		}
+		span {
+			font-family: $freehandFont;
+			font-size: 36px;
+			text-transform: capitalize;
+			vertical-align: middle;
+			position: relative;
+			top: 4px;
+			margin-left: 6px;
+			@include breakpoint(mobile) {
+				font-size: 4rem;
+			}
+
+		}
+	}
+}
+
+.info-top {
+	@extend %clearfix;
+}
+
+.some-info-items {
+	display: inline-block;
+	margin-left: 50px;
+	vertical-align: super;
+	@include breakpoint(mobile) {
+		display: block;
+		text-align: center;
+		margin: 2rem 0;
+	}
+	span {
+		display: inline-block;
+		font-family: $freehandFont;
+		font-size: 24px;
+		@include breakpoint(mobile) {
+			font-size: 3rem;
+		}
+		sup {
+			display: block;
+			text-align: center;
+		}
+	}
+	.num {
+		margin-left: 5px;
+		padding: 5px 7px;
+		background-color: $c-darkBrown;
+		font-family: $bouncyFont;
+		font-size: 32px;
+		color: $c-white;
+		text-transform: uppercase;
+		@include breakpoint(mobile) {
+			font-size: 4rem;
+		}
+	} 
+}
+
+.info-main {
+	padding-bottom: 30px;
+	@extend %clearfix;
+	border-bottom: 2px solid $c-darkBrown;
+	.side-info {
+		float: left;
+		width: 30%;
+		text-align: center;
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+		}
+		h5 {
+			margin-bottom: 40px;
+			font-size: 34px;
+			@include breakpoint(mobile) {
+				font-size: 5rem;
+				margin-bottom: 3rem;
+			}
+		}
+		ul li {
+			margin-bottom: 10px;
+			font-family: $bouncyFont;
+			@include breakpoint(mobile) {
+				display: inline-block;
+				margin: 0 1rem;
+			}
+			span {
+				display: block;
+				font-size: 30px;
+				sub {
+					font-size: 16px;
+					text-transform: uppercase;
+				}
+			}
+			i {
+				font-family: $freehandFont;
+				font-size: 30px;
+				line-height: 0;
+			}
+		}
+	}
+	.text {
+		float: left;
+		width: 70%;
+		padding: 70px 40px;
+		@include breakpoint(mobile) {
+			padding: 4rem 2rem;
+			width: 100%;
+			float: none;
+		}
+		p {
+			font-size: 18px;
+			line-height: 1.4;
+			@include breakpoint(mobile) {
+				font-size: 16px;
+			}
+		}
+	}
+}
+
+.info-bottom {
+	margin-top: 20px;
+	ul {
+		text-align: center;
+	}
+	ul li {
+		display: inline-block;
+		text-align: center;
+		color: $c-infoRed;
+		margin: 0 15px;
+		@include breakpoint(mobile) {
+			margin: 0 1rem;
+		}
+		span {
+			display: block;
+			font-family: $bouncyFont;
+			font-size: 32px;
+			@include breakpoint(mobile) {
+				font-size: 3.6rem;
+			}
+			sub {
+				font-size: 20px;
+				text-transform: uppercase;
+				@include breakpoint(mobile) {
+					font-size: 2.4rem;
+				}
+			}
+		}
+		i {
+			font-family: $freehandFont;
+			font-size: 34px;
+			line-height: 0;
+			@include breakpoint(mobile) {
+				font-size: 3.8rem;
+			}
+		}
+	}
+}
+
+.side-info {
+	h5 {
+		font-family: $freehandFont;
+		color: $c-infoRed;
+	}
+}
+
+.display__img {
+	width: 45%;
+	@include breakpoint(mobile) {
+		width: 100%;
+		order: 1;
+	}
+	img {
+		display: block;
+		width: 35%;
+		margin: 0 auto;
+		@include breakpoint(mobile) {
+			width: 40%;
+			margin: 0rem auto 5rem;
+		}
+	}
+	.img-decor {
+		margin-bottom: 20px;
+	}
+}
+
+.related-link-holder {
+	position: absolute;
+	width: 45%;
+	right: 0;
+	bottom: 0;
+	text-align: center;
+	@include breakpoint(mobile) {
+		position: static;
+		order: 3;
+		width: 100%;
+	}
+}
+
+.related-link {
+	position: relative;
+	display: inline-block;
+	width: 300px;
+	height: 80px;
+	margin: 30px auto 0;
+	font-family: $bouncyFont;
+	font-size: 28px;
+	color: $c-white;
+	text-transform: uppercase;
+	background-image: url('../img/oklagija.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	span {
+		@include absolute(center);
+		width: 100%;
+		text-align: center;
+	}
+}
+
+//-- advice
+
+.advice {
+	margin-top: 60px;
+	@include breakpoint(mobile) {
+		margin-top: 0;
+	}
+	&__title {
+		padding: 20px 0;
+		margin-bottom: 50px;
+		background-color: $c-mainBrown;
+		font-family: $bouncyFont;
+		font-size: 55px;
+		color: $c-white;
+		text-transform: uppercase;
+		text-align: center;
+		@include breakpoint(mobile) {
+			font-size: 5.4rem;
+		}
+	}
+	.inner {
+		@extend %clearfix;
+		padding: 0 80px;
+		@include breakpoint(mobile) {
+			padding: 0rem;
+		}
+	}
+	.img-wrapper,
+	.text {
+		width: 40%;
+		float: left;
+		@include breakpoint(mobile) {
+			float: none;
+			width: 100%;
+		}
+		img {
+			width: 100%;
+		}
+	}
+	.text {
+		width: 60%;
+		padding: 50px;
+		@include breakpoint(mobile) {
+			float: none;
+			width: 100%;
+			padding: 4rem 0;
+		}
+		p {
+			font-size: 18px;
+			line-height: 1.6;
+		}
+	}
+	.logo-bottom {
+		display: block;
+		width: 300px;
+		margin: 40px auto;
+		img {
+			width: 100%;
+		}
+		@include breakpoint(mobile) {
+			width: 60%;
+		}
+	}
+}
+
+
+//--UPLOAD page
+
+.upload-form {
+	width: 100%;
+	padding-top: 50px;
+	font-family: $bouncyFont;
+	text-transform: uppercase;
+	@include breakpoint(mobile) {
+		padding-bottom: 8rem;
+	}
+}
+
+.container-form {
+	max-width: 1000px;
+	width: 80%;
+	margin: 0 auto;
+	@extend %clearfix;
+	@include breakpoint(tablet) {
+		width: 100%;
+		padding: 0 4rem;
+	}
+	p {
+		margin-bottom: 6px;
+	}
+}
+.image-upload {
+	position: relative;
+	padding: 15px;
+	margin-bottom: 20px;
+	border: 1px solid $c-mainBrown;
+	border-radius: 7px;
+	text-align: center;
+	@include breakpoint(mobile) {
+		margin-bottom: 3.6rem;
+	}
+	input {
+		background: none;top: 0;
+	    left: 0;
+	    background: transparent;
+	    border: none;
+	    opacity: 0;
+	    width: 100%;
+	    height: 100%;
+	    position: absolute;
+	    display: block;
+	    cursor: pointer;
+	}
+	img {
+		display: block;
+		width: 40%;
+		margin: 0 auto;
+		margin-bottom: 15px;
+	}
+}
+
+
+.form__side {
+	float: left;
+	width: 30%;
+	padding: 0 20px;
+	font-size: 24px;
+	@include breakpoint(tablet) {
+		padding: 0 2rem 0 0;
+	}
+	@include breakpoint(mobile) {
+		width: 100%;
+		float: none;
+		margin-bottom: 3.6rem;
+	}
+	.input-wrapper,p {
+		width: 70%;
+		margin: 0 auto 6px;
+		@include breakpoint(mobile) {
+			width: 80%;
+			float: left;
+		}
+	}
+	.input-wrapper {
+		margin-bottom: 20px;
+	}
+}
+
+.form__main {
+	float: left;
+	width: 70%;
+	font-size: 30px;
+	padding: 0 14rem 0 40px;
+	@include breakpoint(tablet--landscape) {
+		padding-right: 40px;
+	}
+	@include breakpoint(tablet) {
+		padding: 0 0rem 0 2rem;
+
+	}
+	@include breakpoint(mobile) {
+		width: 100%;
+		float: none;
+		padding: 0rem;
+		clear: both;
+	}
+}
+
+input,
+textarea {
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
+	outline: none;
+	font-family: $baseFont;
+}
+
+.input-wrapper {
+	width: 100%;
+	height: 35px;
+	margin-bottom: 20px;
+	border: 2px solid $c-mainBrown;
+	overflow: hidden;
+	border-radius: 5px;
+	background-color: $c-white;
+	input {
+		width: 100%;
+		height: 100%;
+		padding: 0 16px;
+		vertical-align: bottom;
+	}
+}
+.text-wrapper {
+	width: 100%;
+	height: 300px;
+	overflow: hidden;
+	border: 2px solid $c-mainBrown;
+	border-radius: 5px;
+	background-color: $c-white;
+	textarea {
+		width: 100%;
+		height: 100%;
+		padding: 16px;
+	}
+}
+
+.form__info-data {
+	@extend %clearfix;
+	padding: 8rem 0 5rem;
+	clear: both;
+	p {
+		font-size: 24px;
+	}
+	.check-wrapper {
+		width: 100%;
+	}
+	.left,
+	.right {
+		float: left;
+		width: 48%;
+		margin-right: 4%;
+		@include breakpoint(mobile) {
+			width: 100%;
+			float: none;
+			margin-right: 0;
+		}
+	}
+	.right {
+		margin-right: 0;
+	}
+	.input-wrapper {
+
+		background: transparent;
+	}
+}
+
+.btn-main-submit {
+	display: block;
+	background: none;
+	border: none;
+	outline: none;
+	box-shadow: none;
+	width: 300px;
+	height: 80px;
+	margin: 0px auto 0;
+	font-family: $bouncyFont;
+	font-size: 28px;
+	color: $c-white;
+	text-transform: uppercase;
+	background-image: url('../img/oklagija.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 100%;
+	cursor: pointer;
+}
+
+.add-ingredient {
+	display: block;
+	position: relative;
+	width: 50px;
+	height: 30px;
+	font-size: 80px;
+	line-height: 0px;
+	border: 2px solid $c-mainBrown;
+	border-radius: 5px;
+	text-align: center;
+	cursor: pointer; 
+	i {
+		@include absolute(center-horizontal);
+		top: 3px;
+	}
+}
+
+.ingredient {
+	margin-bottom: 4rem;
+}
+
+.choose-product {
+	@extend %clearfix;
+	margin-bottom: 40px;
+	@include breakpoint(mobile) {
+		margin-bottom: 3rem;
+	}
+}
+
+
+.check-wrapper {
+	position: relative;
+	margin-bottom: 10px;
+	line-height: 1.4;
+	float: left;
+	width: 50%;
+	
+	@include breakpoint(mobile) {
+		margin-bottom: 2rem;
+	}
+	input[type=checkbox] {
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+	    height: 0;
+	    width: 0;
+	}
+	input[type=radio] {
+	    position: absolute;
+	    opacity: 0;
+	    cursor: pointer;
+	    height: 0;
+	    width: 0;
+	}
+
+	label {
+		font-family: $freehandFont;
+		text-transform: initial;
+		font-size: 24px;
+		color: #000;
+		display: block;
+	    position: relative;
+	    padding-left: 3.5rem;
+	    cursor: pointer;
+	    -webkit-user-select: none;
+	    -moz-user-select: none;
+	    -ms-user-select: none;
+	    user-select: none;
+	    z-index: 4;
+	    @include breakpoint(desktop-fit) {
+	    	padding-left: 25px;
+	    	font-size: 16px;
+	    }
+	    @include breakpoint(tablet--landscape) {
+	    	padding-left: 4rem;
+	    }
+	    @include breakpoint(mobile) {
+	    	display: block;
+	    	padding-left: 4.5rem;
+	    	font-size: 3.6rem;
+	    }
+	}
+	input {
+		
+	}
+	input:checked~.checkmark {
+	    // background-color: #898989;
+	}
+	input:checked~.checkmark:after {
+	    display: block;
+	}
+	.checkmark {
+	    @include absolute(center-vertical);
+	    height: 20px;
+	    width: 20px;
+	    margin-top: 0!important;
+	    background-color: #fff;
+	    border: 2px solid $c-mainRed;
+	    border-radius: 3px;
+	    @include breakpoint(mobile) {
+	    	width: 2.4rem;
+	    	height: 2.4rem;
+	    }
+	}
+	.checkmark:after {
+		@include absolute(center);
+		top: 25%;
+		left: 28%;
+		width: 5px;
+		height: 2rem;
+		border: solid #000;
+		border-width: 0 2px 2px 0;
+		transform: rotate(45deg) translate(-50%, -50%);
+	}
+	.checkmark:after {
+	    content: "";
+	    position: absolute;
+	    display: none;
+	}
+}
+
+//--All recipes
+
+.all-recipes {
+	padding-top: 10rem;
+	width: 100%;
+	@include breakpoint(tablet--landscape) {
+		padding-top: 4rem;
+	}
+	.container-recipes {
+		@extend %clearfix;
+		max-width: 1100px;
+		margin: 0 auto;
+		width: 90%;
+		@include breakpoint(mobile) {
+			width: 100%;
+		}
+	}
+}
+
+.recipe-box {
+	float: left;
+	width: 33.33%;
+	padding: 0 2rem;
+	@include breakpoint(mobile) {
+		padding: 0 4rem;
+		width: 50%;
+	}
+	@include breakpoint(mobile--s) {
+		width: 100%;
+	}
+	.img-wrapper {
+		height: 26rem;
+		position: relative;
+		overflow: hidden;
+		@include breakpoint(tablet--landscape) {
+			height: 18rem;
+		}
+		@include breakpoint(mobile--s) {
+			height: 30rem;
+		}
+		img {
+			@include absolute(center);
+			height: auto;
+			width: 110%;
+		}
+	}
+	&__title {
+		margin: 16px 0;
+		font-family: $bouncyFont;
+		font-size: 32px;
+		text-transform: uppercase;
+		text-align: center;
+	}
+}
+
+.pg-rules {
+	.container-rules {
+		max-width: 1200px;
+		width: 80%;
+		margin: 0 auto;
+		padding: 6rem 0;
+		font-family: $baseFont;
+		padding-right: 8rem;
+		@include breakpoint(tablet) {
+			padding-right: 0;
+		}
+		@include breakpoint(mobile) {
+			width: 100%;
+			padding: 3rem 4rem;
+		}
+		h2 {
+			margin-bottom: 20px;
+			font-size: 30px;
+			font-weight: 600;
+			line-height: 1.6;
+			text-align: center;
+			color: $c-mainBrown;
+			@include breakpoint(mobile) {
+				font-size: 20px;
+			}
+		}
+		ul {
+			list-style-type: disc;
+			margin-left: 20px;
+		}
+		ul li,
+		p {
+			margin-bottom: 16px;
+			font-size: 16px;
+			line-height: 1.6;
+			color: $c-mainBrown;
+			@include breakpoint(mobile) {
+				font-size: 14px;
+			}
+		}
+		a {
+			color: $c-mainBrown;
+			text-decoration: underline;
+		}
+	}
+}
+

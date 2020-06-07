@@ -1,0 +1,42 @@
+//-------------------------
+//---------------TYPOGRAPHY
+//-------------------------
+
+//------FONT-FACE
+
+@include fontFace(Bouncy, Bouncy,  null, null, ttf);
+@include fontFace(Frhnd575, Frhnd575,  null, null, ttf);
+
+
+
+
+//------FONT-SIZE
+
+body {
+    //font-size: 0!important; 
+}
+
+$baseFontSize: 10px; // DO NOT CHANGE THIS
+
+html {
+    font-size: $baseFontSize;
+    //change this part
+    @include breakpoint (desktop--Large) {
+        font-size: 0.5208333333333333vw;  // > 1200
+    }
+
+    // @include breakpoint (desktop-fit) { // < 1600
+    //     font-size: 0.625vw; 
+    // }
+    @include breakpoint (tablet--landscape) {
+        font-size: 0.9765625vw;//10px - 768px
+    }
+    @include breakpoint (mobile) {//10px - 640px
+        font-size: 1.68vw;
+    }
+    // @include breakpoint (mobile--s) {//10px - 540px
+    //     font-size: 2.083333333333333vw;
+    // }
+}
+
+
